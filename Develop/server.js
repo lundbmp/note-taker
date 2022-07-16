@@ -14,9 +14,10 @@ app.use(express.static('public'));
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
     const note = req.body;
-    notes.push(note);
+    const newNotes = notes;
+    newNotes.push(note);
 
-    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes), error => {
+    fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(newNotes), error => {
         if (error) {
             console.log(error);
         }
@@ -30,6 +31,24 @@ app.get('/api/notes', (req, res) => {
     const results = notes;
     
     res.json(results);
+});
+
+// Deletes note by ID
+app.delete('/api/notes/:id', (req, res) => {
+    const result = notes[req.params.id];
+    notes.splice(parseInt(req.params.id), 1);
+
+    for(index = 0; index < notes.length; index++) {
+        notes[index].id = index.toString();
+    }
+
+    fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes), error => {
+        if (error) {
+            console.log(error);
+        }
+    });
+
+    res.json(result);
 });
 
 // returns notes.html
