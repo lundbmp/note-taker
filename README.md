@@ -9,6 +9,7 @@ Otherwise, the page is deployed at [Lundbmp-heroku](https://blooming-journey-992
 
 ## How to Use the Project
 Clicking the 'Get Started' button will bring you to the Note Taker page, and will load all previously loaded notes. Enter in your note title and note text and save by clicking the save icon in the upper right hand corner. Clicking on the note on the left coloumn will bring up the note. Clicking the red trashcan will delete the note. Clicking the plus icon in the upper right hand corner will allow you to add another note.
+![screencapture-blooming-journey-99226-herokuapp-notes-2022-07-17-12_32_04](https://user-images.githubusercontent.com/35671768/179417703-b1348d45-7c02-42bc-a64d-858a827f4418.png)
 
 ## Credits
 The initial code was supplied by Xandromus and nol166; the back end code was completed and deployed by Lundbmp
